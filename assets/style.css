@@ -1,0 +1,421 @@
+        @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap");
+
+        :root {
+            --bg: #0a0a0a;
+            --bg-alt: #111111;
+            --accent: #00b4da;
+            --secondary-accent: #ff00ff;
+            --text: #ffffff;
+            --muted: #888888;
+            --border: #222222;
+            --glow: 0 0 10px rgba(0, 180, 218, 0.3);
+            --glow-hover: 0 0 20px rgba(255, 0, 255, 0.6);
+            --success: #00ff88;
+            --danger: #ff4444;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: "JetBrains Mono", monospace;
+            line-height: 1.6;
+            font-size: 14px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+            flex: 1;
+        }
+
+        /* Header */
+        .header {
+            background: var(--bg-alt);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent), var(--secondary-accent));
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: 2px solid var(--accent);
+            background: linear-gradient(45deg, var(--accent), var(--secondary-accent));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .header-avatar:hover {
+            box-shadow: var(--glow-hover);
+            transform: scale(1.05);
+        }
+
+        .header-links {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .header-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            background: var(--bg);
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .header-link:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            box-shadow: var(--glow);
+        }
+
+        .header-link img {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Search Section */
+        .search-section {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .search-container {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 1.5rem 4rem 1.5rem 1.5rem;
+            background: var(--bg-alt);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            color: var(--text);
+            font-family: inherit;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: var(--glow);
+        }
+
+        .search-btn {
+            position: absolute;
+            right: 1.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: var(--accent);
+            cursor: pointer;
+            font-size: 1.4rem;
+            transition: all 0.3s ease;
+        }
+
+        .search-btn:hover {
+            color: var(--secondary-accent);
+            text-shadow: var(--glow-hover);
+        }
+
+        /* Links Section */
+        .links-section {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .link-group {
+            background: var(--bg-alt);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .link-group:hover {
+            border-color: var(--accent);
+            box-shadow: var(--glow);
+        }
+
+        .link-group::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent), var(--secondary-accent));
+        }
+
+        .group-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .group-title {
+            font-size: 1.3rem;
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        .add-link-btn {
+            background: var(--bg);
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            padding: 0.3rem 0.6rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 0.8rem;
+            transition: all 0.3s ease;
+        }
+
+        .add-link-btn:hover {
+            border-color: var(--secondary-accent);
+            color: var(--secondary-accent);
+            box-shadow: var(--glow-hover);
+        }
+
+        .links-list {
+            list-style: none;
+        }
+
+        .link-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.8rem;
+            margin-bottom: 0.5rem;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .link-item:hover {
+            border-color: var(--accent);
+        }
+
+        .link-item a {
+            color: var(--text);
+            text-decoration: none;
+            flex: 1;
+            transition: all 0.3s ease;
+        }
+
+        .link-item a:hover {
+            color: var(--accent);
+        }
+
+        .link-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .edit-btn, .delete-btn {
+            background: none;
+            border: none;
+            color: var(--muted);
+            cursor: pointer;
+            padding: 0.2rem;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .edit-btn:hover {
+            color: var(--accent);
+        }
+
+        .delete-btn:hover {
+            color: var(--danger);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--bg-alt);
+            border-top: 1px solid var(--border);
+            padding: 1.5rem;
+            margin-top: auto;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .footer-time {
+            color: var(--accent);
+            font-weight: 500;
+            font-size: 1.1rem;
+        }
+
+        .footer-location {
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+        }
+
+        .modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: var(--bg-alt);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 2rem;
+            width: 90%;
+            max-width: 400px;
+        }
+
+        .modal h3 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            color: var(--text);
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 0.8rem;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            color: var(--text);
+            font-family: inherit;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: flex-end;
+        }
+
+        .btn {
+            padding: 0.6rem 1.2rem;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            background: var(--bg);
+            color: var(--text);
+            cursor: pointer;
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: var(--bg);
+        }
+
+        .btn-primary:hover {
+            background: var(--secondary-accent);
+            border-color: var(--secondary-accent);
+        }
+
+        .btn:hover {
+            border-color: var(--accent);
+        }
+
+        @media (max-width: 768px) {
+            .links-section {
+                grid-template-columns: 1fr;
+            }
+            
+            .search-input {
+                font-size: 1rem;
+                padding: 1.2rem 3rem 1.2rem 1rem;
+            }
+            
+            .search-btn {
+                font-size: 1.2rem;
+                right: 1rem;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .header-links {
+                width: 100%;
+                justify-content: center;
+            }
+        }
